@@ -1,0 +1,52 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: team-b
+  namespace: team-b
+spec:
+  interval: 1m0s
+  path: ./tenants/team-b
+  prune: true
+  serviceAccountName: team-a
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    toolkit.fluxcd.io/tenant: team-b
+  name: team-b
+
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    toolkit.fluxcd.io/tenant: team-b
+  name: team-b
+  namespace: team-b
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  labels:
+    toolkit.fluxcd.io/tenant: team-b
+  name: team-b-reconciler
+  namespace: team-b
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: User
+  name: gotk:team-b:reconciler
+- kind: ServiceAccount
+  name: team-b
+  namespace: team-b
+
