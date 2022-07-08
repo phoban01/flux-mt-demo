@@ -1,4 +1,6 @@
-This repo configure a multi-tenant flux setup with the following directory structure:
+# Multi-tenancy with Flux
+
+This repo configures a multi-tenant flux setup with the following directory structure:
 
 ```
 .
