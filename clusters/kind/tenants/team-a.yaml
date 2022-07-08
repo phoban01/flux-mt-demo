@@ -1,3 +1,14 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: team-a
+  namespace: team-a
+spec:
+  interval: 10m0s
+  ref:
+    branch: main
+  url: ssh://git@github.com/phoban01/flux-mt-demo
+
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
@@ -11,7 +22,7 @@ spec:
   serviceAccountName: team-a
   sourceRef:
     kind: GitRepository
-    name: flux-system
+    name: team-a
 
 ---
 apiVersion: v1
