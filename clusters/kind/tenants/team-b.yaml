@@ -20,6 +20,7 @@ spec:
   path: ./tenants/team-b
   prune: true
   serviceAccountName: team-b
+  validation: client
   sourceRef:
     kind: GitRepository
     name: team-b
