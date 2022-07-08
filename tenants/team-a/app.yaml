@@ -13,6 +13,7 @@ metadata:
   name: podinfo
   namespace: team-a
 spec:
+  serviceAccountName: team-a
   chart:
     spec:
       chart: podinfo
@@ -20,4 +21,3 @@ spec:
         kind: HelmRepository
         name: podinfo
   interval: 1m0s
-

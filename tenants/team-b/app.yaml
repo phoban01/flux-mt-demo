@@ -13,6 +13,7 @@ metadata:
   name: podinfo
   namespace: team-b
 spec:
+  serviceAccountName: team-a
   chart:
     spec:
       chart: podinfo
