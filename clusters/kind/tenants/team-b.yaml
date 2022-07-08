@@ -7,7 +7,7 @@ spec:
   interval: 10m0s
   ref:
     branch: main
-  url: ssh://git@github.com/phoban01/flux-mt-demo
+  url: https://github.comphoban01/flux-mt-demo
 
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
