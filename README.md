@@ -1,4 +1,6 @@
 This repo configure a multi-tenant flux setup with the following directory structure:
+
+```
 .
 ├── README.md
 ├── clusters
@@ -10,7 +12,7 @@ This repo configure a multi-tenant flux setup with the following directory struc
     │   └── app.yaml
     └── team-b
         └── app.yaml
-
+```
 Tenants are **onboarded** via `clusters/kind/tenants`.
 
 Onboarding creates the following resources for each tenant:
