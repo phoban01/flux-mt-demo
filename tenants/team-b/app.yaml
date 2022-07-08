@@ -2,7 +2,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
   name: podinfo
-  namespace: flux-system
+  namespace: team-b
 spec:
   interval: 1m0s
   url: https://stefanprodan.github.io/podinfo
@@ -11,7 +11,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: podinfo
-  namespace: flux-system
+  namespace: team-b
 spec:
   chart:
     spec:
